@@ -6,8 +6,8 @@ $(document).ready(function () {
            $("td").hide();
             $("#BS").show();
             $("#BP").show();
-            $("#inputBS").show();
-            $("#inputBP").show();
+            $(".inputBS").show();
+            $(".inputBP").show();
             $(".cb").show();
         } else {
             $("td").show();
@@ -18,7 +18,18 @@ $(document).ready(function () {
 
 $(document).ready(function() {
     $(".btnCalculate").click(function(){
-        alert("button");
+        var sum=0;
+        var a;
+
+        for(var i =1 ;i<13;i++) {
+            if($("#input"+i).val()=="")
+            {
+              $("#input"+i).val("0");
+            }
+            sum += parseInt($("#input"+i).val());
+        }
+        $("#inputBP").val(sum);
+
     });
 });
 
