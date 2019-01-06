@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="TaxCalculator.js"></script>
     <link rel="stylesheet" type="text/css" href="TaxCalculator.css">
     <meta charset="UTF-8">
     <title>Title</title>
@@ -13,9 +15,9 @@
 <table style="width:40%">
 
     <tr>
-        <td>Base Salary:</td>
-        <td><input type="text" name="BaseSalarytxtb"></td>
-        <td><input type="checkbox" name="checkBox1" > For 12 Months<br></td>
+        <td id="BS">Base Salary:</td>
+        <td id="inputBS"><input type="text" name="BaseSalarytxtb"></td>
+        <td class="cb"><input  type="checkbox" id="checkbox" > For 12 Months<br></td>
     </tr>
     <tr>
         <td>January</td><br>
@@ -70,8 +72,8 @@
         <td><input type="text" name="Decembertxtb"></td>
     </tr>
     <tr>
-        <td>Bonus Points:</td>
-        <td><input type="text" name="BonusPointstxtb"></td>
+        <td id="BP">Bonus Points:</td>
+        <td id="inputBP" ><input  type="text" name="BonusPointstxtb"></td>
     </tr>
 </table>
     <button class="btnCalculate" type="button">Calculate</button>
