@@ -15,3 +15,10 @@ $(document).ready(function () {
         }
     });
 });
+
+$(document).ready(function() {
+    $(".btnCalculate").click(function(){
+        alert("button");
+    });
+});
+
