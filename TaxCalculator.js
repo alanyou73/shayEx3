@@ -16,10 +16,21 @@ $(document).ready(function () {
             $(".inputBP").show();
             $(".cb").show();
             $("#inputBS").val("");
+            $("#inputBP").val("");
             $("#result").text("");
             $("#result").show();
             clearTextBoxes();
             $(".btnCalculate").click(function(){//calculate tax
+                if($("#inputBS").val()=="" )
+                {
+                    $("#inputBS").val("0");
+                }
+                else if( $.isNumeric( $("#inputBS").val() )==false|| parseFloat($("#inputBS").val()) < 0)
+                {
+                    $("#result").text("Please enter a positive number");
+                    $("#result").show();
+                    return;
+                }
                 sumOfIncome= ifChecked();
                 taxCalc(sumOfIncome);
             });
@@ -27,10 +38,23 @@ $(document).ready(function () {
             $("#result").hide();
             $("td").show();
             $("#inputBS").val("");
+            $("#inputBP").val("");
             $("#result").text("");
             $("#result").show();
 
             $(".btnCalculate").click(function(){//calculate tax
+                for(var i =1 ;i<13;i++) {
+                    if( $("#input" + i).val()=="" )
+                    {
+                        $("#input"+i).val("0");
+                    }
+                    else if($.isNumeric( $("#input" + i).val() )==false|| parseFloat($("#input" + i).val()) < 0)
+                    {
+                        $("#result").text("Please enter a positive number");
+                        $("#result").show();
+                        return;
+                    }
+                }
                 sumOfIncome=ifUnchecked();
                 taxCalc(sumOfIncome);
             });
@@ -45,6 +69,16 @@ $(document).ready(function () {
         $("#result").text("");
         if (ckbox.is(':checked')) {
             clearTextBoxes();
+            if( $("#inputBS").val()=="" )
+            {
+                $("#inputBS").val("0");
+            }
+            else if( $.isNumeric( $("#inputBS").val() )==false|| parseFloat($("#inputBS").val()) < 0)
+            {
+                $("#result").text("Please enter a positive number");
+                $("#result").show();
+                return;
+            }
             sumOfIncome=ifChecked();
             taxCalc(sumOfIncome);
 
@@ -52,8 +86,21 @@ $(document).ready(function () {
             $("#result").hide();
             $("td").show();
             $("#inputBS").val("");
+
             $("#result").text("");
 
+            for(var i =1 ;i<13;i++) {
+                if( $("#input" + i).val()=="" )
+                {
+                    $("#input" + i).val("0") ;
+                }
+                else if( $.isNumeric( $("#input"+i).val())==false || parseFloat($("#input" + i).val()) < 0)
+                {
+                    $("#result").text("Please enter a positive number");
+                    $("#result").show();
+                    return;
+                }
+            }
             sumOfIncome=ifUnchecked();
             taxCalc(sumOfIncome);
         }
@@ -65,6 +112,7 @@ $(document).ready(function () {
 function ifUnchecked() {
     var sum=0;
     for(var i =1 ;i<13;i++) {
+
         if($("#input"+i).val()=="")
         {
             sum+=0;
@@ -109,6 +157,16 @@ function taxCalc(income){
     {
         creditPoints = parseFloat($("#inputBP").val());
     }
+    if($("#inputBP").val()=="" ){
+        parseFloat($("#inputBP").val("0"));
+    }
+    else if ( $.isNumeric( $("#inputBP").val() )==false|| parseFloat($("#inputBP").val()) < 0)
+    {
+        $("#result").text("Please enter a positive number");
+        $("#result").show();
+        return;
+    }
+
 
     if(income<0){
         //some kind of error
