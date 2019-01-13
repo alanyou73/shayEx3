@@ -1,17 +1,23 @@
-#bigDiv
-{
-    width:58%;
-    height:90%;
-    background:aquamarine;
-    border: solid black 2px;
+
+#bigDiv {
+    border-radius: 25px;
+    background: url(calculator.jpg);
+    padding: 20px;
+    width: 30%;
+    height: 100%;
+
+
 
 }
 .smallDiv
 {
-    width:58%;
-    height:90%;
-    background: cornflowerblue;
-    border: solid darkred 2px;
+    border-radius: 25px;
+    background: lightblue;
+    padding: 20px;
+    width: 30%;
+    height: 100%;
+    border:3px solid black;
+
 }
 
 #result
